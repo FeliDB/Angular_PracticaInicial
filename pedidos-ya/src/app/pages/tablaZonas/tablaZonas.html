@@ -1,0 +1,41 @@
+<!-- Barra roja superior -->
+<div class="barra-superior"></div>
+
+<div class="container py-5">
+  <!-- Título centrado -->
+  <div class="text-center mb-5">
+    <h1 class="fw-bold titulo-zonas">Tabla de Zonas</h1>
+  </div>
+
+  <!-- Tabla de zonas -->
+  <table class="tabla-zonas">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Ubicación</th>
+        <th>Radio</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (zona of datos; track zona.id) {
+        <tr>
+          <td>{{ zona.id }}</td>
+          <td>{{ zona.nombre }}</td>
+          <td>{{ zona.ubicacion }}</td>
+          <td>{{ zona.radio }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <!-- Controles de paginación -->
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+  </ul>
+</nav>

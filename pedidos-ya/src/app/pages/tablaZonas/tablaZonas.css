@@ -1,0 +1,33 @@
+/* Barra superior roja */
+.barra-superior {
+  background-color: #ff5757;
+  height: 40px;
+}
+
+/* Título */
+.titulo-zonas {
+  color: #888888;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 40px;
+}
+
+/* Tabla */
+.tabla-zonas {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-zonas th,
+.tabla-zonas td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.tabla-zonas thead th {
+  background-color: #eeeeee;
+  font-weight: normal;
+}

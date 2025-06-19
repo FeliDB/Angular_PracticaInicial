@@ -1,0 +1,21 @@
+<form [formGroup]="formulario" (ngSubmit)="enviar()">
+@if (error) {
+<div class="alert alert-danger">{{ error }}</div>
+}
+<label>Nombre</label>
+<input formControlName="nombre" />
+@if (formulario.get('nombre')?.invalid && formulario.get('nombre')?.touched) {
+<p class="text-danger">Nombre es requerido y debe tener al menos 3 caracteres.</p>
+}
+<label>Edad</label>
+<input type="number" formControlName="edad" />
+@if (formulario.get('edad')?.invalid && formulario.get('edad')?.touched) {
+<p class="text-danger">Edad mínima: 1 año.</p>
+}
+<label>Email</label>
+<input type="email" formControlName="email" />
+@if (formulario.get('email')?.invalid && formulario.get('email')?.touched) {
+<p class="text-danger">Correo electrónico inválido.</p>
+}
+<button type="submit" [disabled]="formulario.invalid">Enviar</button>
+</form>
