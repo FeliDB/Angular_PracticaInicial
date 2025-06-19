@@ -1,5 +1,29 @@
 .card {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
+  border:none;
 }
 
+.subtitulo {
+  font-size: medium;
+}
+
+.barra-superior {
+  background-color: #ff5757;
+  height: 40px;
+  width: auto;
+}
+
+.btn {
+  background-color: #ff5757;
+  border-color: #ff5757;
+  font-size: small;
+  font-weight: bold;
+  max-width: 150px;
+  display: block;
+  margin: auto;
+}
+
+.form-label {
+  letter-spacing: 2.5px;
+}
