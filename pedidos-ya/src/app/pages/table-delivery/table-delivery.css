@@ -1,0 +1,71 @@
+/* Barra superior roja */
+.barra-superior {
+  background-color: #ff5757;
+  height: 40px;
+}
+
+/* Título */
+.titulo-delivey {
+  color: #888888;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 40px;
+}
+
+/* Tabla */
+.tabla-delivery {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-delivery th,
+.tabla-delivery td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.tabla-delivery thead th {
+  background-color: #eeeeee;
+  font-weight: normal;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 30px
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.center-pages {
+  justify-content: center;
+  flex-grow: 1;
+  gap: 0.5rem;
+}
+
+.prev-button::before {
+  font-family: "bootstrap-icons";
+  content: "\f12f"; /* bi-arrow-left */
+  margin-right: 5px;
+}
+
+.next-button::after {
+  font-family: "bootstrap-icons";
+  content: "\f138"; /* bi-arrow-right */
+  margin-left: 5px;
+}

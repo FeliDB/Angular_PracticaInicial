@@ -1,0 +1,58 @@
+<!-- Barra roja superior -->
+<div class="barra-superior"></div>
+
+<div class="container py-5">
+  <!-- Título centrado -->
+  <div class="text-center mb-5">
+    <h1 class="fw-bold titulo-zonas">Tabla de Deliverys</h1>
+  </div>
+
+  <!-- Tabla de zonas -->
+  <table class="tabla-delivery">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>ID de persona</th>
+        <th>Localización</th>
+        <th>Radio</th>
+      </tr>
+    </thead>
+    <!-- <tbody>
+      @for (zona of datos; track zona.id) {
+        <tr>
+          <td>{{ zona.id }}</td>
+          <td>{{ zona.nombre }}</td>
+          <td>{{ zona.ubicacion }}</td>
+          <td>{{ zona.radio }}</td>
+        </tr>
+      }
+    </tbody> -->
+  </table>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+
+<section aria-label="Page navigation example" class="pagination-container">
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link prev-button" href="#"></a>
+    </li>
+  </ul>
+  <ul class="pagination center-pages">
+    <li class="page-item"><a class="page-link" href="#">1</a></li>
+    <li class="page-item"><a class="page-link" href="#">2</a></li>
+    <li class="page-item"><a class="page-link" href="#">3</a></li>
+  </ul>
+  <ul class="pagination">
+    <li class="page-item">
+      <a class="page-link next-button" href="#"></a>
+    </li>
+  </ul>
+</section>
+
+  <!-- Controles de paginación -->
+  <!-- <div class="d-flex justify-content-center mt-4">
+    <button (click)="anteriorPagina()" [disabled]="paginaActual === 1">Anterior</button>
+    <span class="mx-3">Página {{ paginaActual }} de {{ totalPaginas }}</span>
+    <button (click)="siguientePagina()" [disabled]="paginaActual === totalPaginas">Siguiente</button>
+  </div> -->
+</div>
