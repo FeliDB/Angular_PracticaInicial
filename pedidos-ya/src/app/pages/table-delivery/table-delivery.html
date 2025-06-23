@@ -12,22 +12,20 @@
   <table class="tabla-delivery">
     <thead>
       <tr>
-        <th>ID</th>
-        <th>ID de persona</th>
-        <th>Localización</th>
+        <th>Nro Delivery</th>
         <th>Radio</th>
+        <th>Estado</th>
+        <th>Zonas</th>
       </tr>
     </thead>
-    <!-- <tbody>
-      @for (zona of datos; track zona.id) {
-        <tr>
-          <td>{{ zona.id }}</td>
-          <td>{{ zona.nombre }}</td>
-          <td>{{ zona.ubicacion }}</td>
-          <td>{{ zona.radio }}</td>
-        </tr>
-      }
-    </tbody> -->
+@for (delivery of deliveries; track delivery.idDelivery) {
+  <tr>
+    <td>{{ delivery.idDelivery }}</td>
+    <td>{{ delivery.radius }}</td>
+    <td>{{ getEstadoTraducido(delivery.status) }}</td>
+    <td>{{ delivery.zone }}</td>
+  </tr>
+}
   </table>
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
