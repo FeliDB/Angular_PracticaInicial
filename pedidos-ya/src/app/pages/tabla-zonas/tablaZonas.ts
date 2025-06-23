@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 
 @Component({
-  selector: 'app-tablaZonas',
-  templateUrl: './tablaZonas.html',
-  styleUrls: ['./tablaZonas.css']
+  selector: 'app-tabla-zonas',
+  templateUrl: './tabla-zonas.html',
+  styleUrls: ['./tabla-zonas.css']
 })
 
 
-export class TablaZonas {
+export class tabla {
   // Datos simulados
   datos = [
     { id: 1, nombre: 'Zona Norte', ubicacion: 'Madrid', radio: 1500 },

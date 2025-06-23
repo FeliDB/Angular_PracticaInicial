@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormZonas } from './form-zonas';
+import { tabla-zonas } from './tabla-zonas';
 
-describe('FormZonas', () => {
-  let component: FormZonas;
-  let fixture: ComponentFixture<FormZonas>;
+describe('tabla-zonas', () => {
+  let component: tabla-zonas;
+  let fixture: ComponentFixture<tabla-zonas>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [FormZonas]
+      imports: [tabla-zonas]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(FormZonas);
+    fixture = TestBed.createComponent(tabla-zonas);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
