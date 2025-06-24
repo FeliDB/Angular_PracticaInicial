@@ -5,20 +5,16 @@
       <h2 class="text-center mb-4">Creá una cuenta nueva</h2>
       <form [formGroup]="form!" (ngSubmit)="enviar()">
         <div class="mb-3">
-          <label for="name" class="form-label">NOMBRE</label>
-          <input type="name" class="form-control" id="name" placeholder="Juan Martínez" required>
-        </div>
-        <div class="mb-3">
           <label for="email" class="form-label">CORREO ELECTRÓNICO</label>
-          <input type="email" class="form-control" id="email" placeholder="hola@sitioincreible.com.ar" required>
+          <input formControlName="email" type="email" class="form-control" id="email" placeholder="hola@sitioincreible.com.ar" required>
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">CONTRASEÑA</label>
-          <input type="password" class="form-control" id="password" placeholder="********" required>
+          <input formControlName="password" type="password" class="form-control" id="password" placeholder="********" required>
         </div>
         <div class="mb-3">
-          <label for="Birthday" class="form-label">FECHA DE NACIMIENTO</label>
-          <input type="date" class="form-control" id="Birthday" placeholder="Seleccionar" required>
+          <label for="confirmPassword" class="form-label">ROL</label>
+          <input formControlName="role" type="text" class="form-control" id="confirmPassword" placeholder="Seleccione el rol" required>
         </div>
         <button type="submit" class="btn btn-primary">Ingresar</button>
       </form>
