@@ -1,0 +1,32 @@
+<nav></nav>
+<div class="container" id="register-container">
+  <div class="container d-flex justify-content-center align-items-center ">
+    <div class="card p-4">
+      <h2 class="text-center mb-4">Creá una cuenta nueva</h2>
+      <form [formGroup]="form!" (ngSubmit)="enviar()">
+        <div class="mb-3">
+          <label for="name" class="form-label">NOMBRE</label>
+          <input type="name" class="form-control" id="name" placeholder="Juan Martínez" required>
+        </div>
+        <div class="mb-3">
+          <label for="email" class="form-label">CORREO ELECTRÓNICO</label>
+          <input type="email" class="form-control" id="email" placeholder="hola@sitioincreible.com.ar" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">CONTRASEÑA</label>
+          <input type="password" class="form-control" id="password" placeholder="********" required>
+        </div>
+        <div class="mb-3">
+          <label for="Birthday" class="form-label">FECHA DE NACIMIENTO</label>
+          <input type="date" class="form-control" id="Birthday" placeholder="Seleccionar" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Ingresar</button>
+      </form>
+      <div class="redirection-login">
+        <p class="mb-0">¿Ya tenés una cuenta?</p>
+        <a href="/login" class="text-decoration-none">Ingresá</a>
+      </div>
+    </div>
+  </div>
+
+</div>

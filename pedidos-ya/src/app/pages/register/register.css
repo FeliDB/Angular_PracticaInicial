@@ -1,0 +1,50 @@
+nav{
+  background-color: #ff5757;
+  height: 40px;
+  width: auto;
+}
+
+.card{
+    border: none;
+    margin-top: 100px;
+}
+
+label, h2 {
+  color: #a3a0a0;
+  letter-spacing: 2px;
+}
+
+input {
+  border: none;
+  background-color: #f1efef;
+  height: 50px;
+}
+
+button {
+    background-color: #ff5757;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    width: 60%;
+    height: 50px;
+    border: none;
+    position: relative;
+    left: 20%;
+}
+
+button:hover {
+    background-color: #ff3b3b;
+}
+
+.redirection-login{
+    margin-top: 15px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+}
+
+.redirection-login a {
+    color: #ff5757;
+    text-decoration: none;
+}
