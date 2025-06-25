@@ -24,6 +24,19 @@ export class ApiService { //Simula ser AuthService
     return axios.post(config.urls.register, usuario).then(response => response.data);
   }
 
+  getRoles(): Observable<any> { 
+    return new Observable((observer) => {
+      axios.get(config.urls.role)
+        .then(response => {
+          observer.next(response.data);
+          observer.complete();
+        })
+        .catch(error => {
+          observer.error(error);
+        });
+    });
+  }
+
 
 
 }

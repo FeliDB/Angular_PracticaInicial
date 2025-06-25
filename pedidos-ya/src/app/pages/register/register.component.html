@@ -13,8 +13,12 @@
           <input formControlName="password" type="password" class="form-control" id="password" placeholder="********" required>
         </div>
         <div class="mb-3">
-          <label for="confirmPassword" class="form-label">ROL</label>
-          <input formControlName="role" type="text" class="form-control" id="confirmPassword" placeholder="Seleccione el rol" required>
+          <label for="role" class="form-label">ROL</label>
+          <select formControlName="role" class="form-select" id="role" required>
+            <option value="" disabled selected>Selecciona un rol</option> @for (role of roles; track role.id) {
+              <option [value]="role.nombre">{{role.nombre}}</option>
+            }
+          </select>
         </div>
         <button type="submit" class="btn btn-primary">Ingresar</button>
       </form>
