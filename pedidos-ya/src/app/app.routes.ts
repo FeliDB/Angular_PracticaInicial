@@ -3,6 +3,7 @@ import { TemplateComponent } from './pages/template/template.component';
 import { HomeComponent } from './pages/home/home.component';
 import { LoginComponent } from './pages/login/login.component';
 import { TableDelivery } from './pages/table-delivery/table-delivery';
+import { DeliveryForm } from './pages/delivery-form/delivery-form';
 
 export const routes: Routes = [
   {
@@ -17,4 +18,5 @@ export const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: 'table-delivery', component: TableDelivery },
+  { path: 'delivery-form', component:  DeliveryForm},
 ];
