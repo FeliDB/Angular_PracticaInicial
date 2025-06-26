@@ -20,8 +20,8 @@ export class DeliveryForm implements OnInit {
 
   ngOnInit(): void {
     this.deliveryReactiveForm = this.fb.group({
-      name: ['', Validators.required],
-      description: ['']
+      personID: ['', Validators.required],
+      lat: ['']
     });
   }
 
@@ -32,21 +32,21 @@ hideButtons(mode: 'add' | 'edit' | 'delete'): void {
 
   if (mode === 'add' || mode === 'edit') {
     this.deliveryReactiveForm = this.fb.group({
-      name: [mode === 'add' ? '' : '', mode === 'add' ? Validators.required : []],
-      description: [''],
-      address: [mode === 'add' ? '' : ''],
-      phone: [mode === 'add' ? '' : ''],
+      personID: [mode === 'add' ? '' : '', mode === 'add' ? Validators.required : []],
+      lat: [''],
+      radius: [mode === 'add' ? '' : ''],
+      lng: [mode === 'add' ? '' : ''],
     });
 
     if (mode === 'add') {
-      this.deliveryReactiveForm.get('address')?.addValidators(Validators.required);
-      this.deliveryReactiveForm.get('phone')?.addValidators(Validators.required);
-      this.deliveryReactiveForm.get('description')?.addValidators(Validators.required);
+      this.deliveryReactiveForm.get('radius')?.addValidators(Validators.required);
+      this.deliveryReactiveForm.get('lng')?.addValidators(Validators.required);
+      this.deliveryReactiveForm.get('lat')?.addValidators(Validators.required);
     }
 
   } else if (mode === 'delete') {
     this.deliveryReactiveForm = this.fb.group({
-      name: ['', Validators.required]
+      personID: ['', Validators.required]
     });
   }
 }
@@ -55,7 +55,7 @@ onSubmit(): void {
   if (this.formMode === 'edit') {
     const values = this.deliveryReactiveForm.value;
     const hasAtLeastOneField =
-      values.description?.trim() || values.address?.trim() || values.phone?.trim();
+      values.lat?.trim() || values.radius?.trim() || values.lng?.trim();
 
     if (!hasAtLeastOneField) {
       alert('Debe completar al menos un campo adicional para modificar.');
