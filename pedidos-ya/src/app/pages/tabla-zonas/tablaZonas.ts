@@ -1,25 +1,25 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { ZonasService } from '../../services/zonas-service/zonas.service';
 
 @Component({
   selector: 'app-tabla-zonas',
-  templateUrl: './tabla-zonas.html',
-  styleUrls: ['./tabla-zonas.css']
+  standalone: true,
+  imports: [CommonModule],
+  templateUrl: './tablaZonas.html',
+  styleUrls: ['./tablaZonas.css']
 })
 
+export class TablaZonas implements OnInit {
+  datos: any[] = [];
 
-export class tabla {
-  // Datos simulados
-  datos = [
-    { id: 1, nombre: 'Zona Norte', ubicacion: 'Madrid', radio: 1500 },
-    { id: 2, nombre: 'Zona Este', ubicacion: 'Barcelona', radio: 1200 },
-    { id: 3, nombre: 'Zona Centro', ubicacion: 'Valencia', radio: 1800 },
-    { id: 4, nombre: 'Zona Sur', ubicacion: 'Sevilla', radio: 1000 },
-    { id: 5, nombre: 'Zona Río', ubicacion: 'Bilbao', radio: 1300 },
-    { id: 6, nombre: 'Zona Alta', ubicacion: 'Zaragoza', radio: 2000 },
-    { id: 7, nombre: 'Zona Baja', ubicacion: 'Granada', radio: 950 },
-    { id: 8, nombre: 'Zona Centro 2', ubicacion: 'Madrid', radio: 1700 },
-    { id: 9, nombre: 'Zona Industrial', ubicacion: 'Valencia', radio: 1100 },
-    { id: 10, nombre: 'Zona Urbana', ubicacion: 'Sevilla', radio: 1250 },
-  ];
+  constructor(private zonasService: ZonasService) {}
 
+  ngOnInit(): void {
+    this.zonasService.getZonas().subscribe({
+      next: (zonas) => (this.datos = zonas),
+      error: (err) => console.error('Error cargando zonas:', err),
+    });
+  }
 }
+

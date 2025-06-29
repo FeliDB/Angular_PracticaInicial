@@ -1,0 +1,60 @@
+<div class="barra-superior"></div>
+
+<div class="text-center mb-5">
+  <h1 class="fw-bold titulo-zonas">Agregar una Zona:</h1>
+</div>
+
+<div class="form-zonas-container">
+  <p class="descripcion-form">Completa todos los campos obligatorios.</p>
+
+  <form [formGroup]="zonaForm" (ngSubmit)="onSubmit()">
+    <!-- Campo Nombre -->
+    <div class="form-group">
+      <label for="name">Nombre:</label>
+      <input
+        id="name"
+        type="text"
+        class="form-control"
+        formControlName="name"
+      />
+      <div *ngIf="name?.invalid && (name?.touched || name?.dirty)" class="error">
+        <small *ngIf="name?.errors?.['required']">El nombre es obligatorio.</small>
+        <small *ngIf="name?.errors?.['minlength']">Debe tener al menos 3 caracteres.</small>
+      </div>
+    </div>
+
+    <!-- Campo Ubicación (ID de la ubicación) -->
+    <div class="form-group">
+      <label for="location">Ubicación (ID):</label>
+      <input
+        id="location"
+        type="number"
+        class="form-control"
+        formControlName="location"
+      />
+      <div *ngIf="location?.invalid && (location?.touched || location?.dirty)" class="error">
+        <small *ngIf="location?.errors?.['required']">La ubicación es obligatoria.</small>
+      </div>
+    </div>
+
+    <!-- Campo Radio -->
+    <div class="form-group">
+      <label for="radius">Radio:</label>
+      <input
+        id="radius"
+        type="number"
+        class="form-control"
+        formControlName="radius"
+      />
+      <div *ngIf="radius?.invalid && (radius?.touched || radius?.dirty)" class="error">
+        <small *ngIf="radius?.errors?.['required']">El radio es obligatorio.</small>
+        <small *ngIf="radius?.errors?.['min']">Debe ser mayor a 0.</small>
+      </div>
+    </div>
+
+    <!-- Botones de acción -->
+    <div class="form-actions">
+      <button type="submit" class="btn-form">Registrar Zona</button>
+    </div>
+  </form>
+</div>
