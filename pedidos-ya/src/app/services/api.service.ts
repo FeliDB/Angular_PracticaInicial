@@ -18,6 +18,12 @@ export class ApiService { //Simula ser AuthService
   > {
      return (await axios.get(config.urls.getFood)).data
   }
+  
+  // getUsuarios
+existeUsuario(email: string): Promise<any> {
+  return axios.post(config.urls.userExists, { email }).then(response => response.data);
+}
+
 
   //Aca me envio solicitud al backend, utilizando axios
   registroUsuario(usuario: UserModelo): Promise<any> {

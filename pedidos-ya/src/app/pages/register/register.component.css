@@ -48,3 +48,14 @@ button:hover {
     color: #ff5757;
     text-decoration: none;
 }
+
+.form-select{
+  background-color: #f1efef;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+  margin-left: 5px;
+}

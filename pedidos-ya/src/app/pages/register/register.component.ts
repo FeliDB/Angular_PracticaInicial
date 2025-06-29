@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-register',
@@ -22,32 +23,13 @@ export class Register implements OnInit {
   ngOnInit(): void {
     this.getRoles(); // Llamar a getRoles para obtener los roles al iniciar el componente
     this.form = this.fb.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email, Validators.minLength(6)]],
+      password: ['', Validators.required, Validators.minLength(5), Validators.pattern(/^(?=.*[a-zA-Z])(?=.*\d).+$/)],
       role: ['', Validators.required],
     })
   }
 
-  enviar(): void {
-    this.email = this.form.value.email;
-    this.password = this.form.value.password;
-    this.rol = this.form.value.role;
-    console.log("Formulario enviado", this.rol);
-    console.log("Valores del formulario:", this.email, this.password, this.rol);
-
-    // Aquí puedes llamar al servicio para registrar al usuario | el modelo de usuario contiene name, email, password y birthday
-    this.apiDelivery.registroUsuario({
-      email: this.email,
-      password: this.password,
-      rol: this.rol
-    }).then(response => {
-      // console.log("Registro exitoso:", response);
-    }).catch(error => {
-      console.error("Error al registrar usuario:", error);
-    });
-  }
-
-
+  //Obtengo los roles del backend
   getRoles(): void {
     this.apiDelivery.getRoles().subscribe({
       next: (data) => {
@@ -59,4 +41,49 @@ export class Register implements OnInit {
       }
     });
   }
+
+  // Envio los valores al backend
+  enviar(): void {
+    this.email = this.form.value.email;
+    this.password = this.form.value.password;
+    this.rol = this.form.value.role;
+    // console.log("Valores del formulario:", this.email, this.password, this.rol);
+
+    // Verifico si el usuario ya existe
+    this.apiDelivery.existeUsuario(this.email).then((exists: boolean) => {
+      if (exists) {
+        Swal.fire({
+          icon: 'error',
+          title: 'Error',
+          text: 'El usuario ya existe.',
+        });
+      } else {
+        // Si el usuario no existe, procedo a registrarlo
+        const usuario = { email: this.email, password: this.password, rol: this.rol };
+        this.apiDelivery.registroUsuario(usuario).then((response) => {
+          Swal.fire({
+            icon: 'success',
+            title: 'Registro exitoso',
+            text: 'Usuario registrado correctamente.',
+          });
+          this.form.reset(); // Reseteo el formulario después del registro exitoso
+        }).catch((error) => {
+          console.error("Error al registrar usuario:", error);
+          Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: 'No se pudo registrar el usuario.',
+          });
+        });
+      }
+    }).catch((error) => {
+      console.error("Error al verificar existencia de usuario:", error);
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Ocurrió un error al verificar el usuario.',
+      });
+    });
+  }
+    
 }
