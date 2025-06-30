@@ -1,5 +1,3 @@
-<div class="barra-superior"></div>
-
 <div class="text-center mb-5">
   <h1 class="fw-bold titulo-zonas">Agregar una Zona:</h1>
 </div>
@@ -23,19 +21,37 @@
       </div>
     </div>
 
-    <!-- Campo Ubicación (ID de la ubicación) -->
-    <div class="form-group">
-      <label for="location">Ubicación (ID):</label>
-      <input
-        id="location"
-        type="number"
-        class="form-control"
-        formControlName="location"
-      />
-      <div *ngIf="location?.invalid && (location?.touched || location?.dirty)" class="error">
-        <small *ngIf="location?.errors?.['required']">La ubicación es obligatoria.</small>
+    <!-- Campo Ubicación (Lat y Lng) -->
+    <div formGroupName="location">
+      <!-- Campo Latitud -->
+      <div class="form-group">
+        <label for="lat">Latitud de la Ubicación:</label>
+        <input
+          id="lat"
+          type="number"
+          class="form-control"
+          formControlName="lat"
+        />
+        <div *ngIf="location?.get('lat')?.invalid && (location?.get('lat')?.touched || location?.get('lat')?.dirty)" class="error">
+          <small *ngIf="location?.get('lat')?.errors?.['required']">La latitud es obligatoria.</small>
+        </div>
+      </div>
+
+      <!-- Campo Longitud -->
+      <div class="form-group">
+        <label for="lng">Longitud de la Ubicación:</label>
+        <input
+          id="lng"
+          type="number"
+          class="form-control"
+          formControlName="lng"
+        />
+        <div *ngIf="location?.get('lng')?.invalid && (location?.get('lng')?.touched || location?.get('lng')?.dirty)" class="error">
+          <small *ngIf="location?.get('lng')?.errors?.['required']">La longitud es obligatoria.</small>
+        </div>
       </div>
     </div>
+
 
     <!-- Campo Radio -->
     <div class="form-group">
@@ -53,8 +69,10 @@
     </div>
 
     <!-- Botones de acción -->
-    <div class="form-actions">
-      <button type="submit" class="btn-form">Registrar Zona</button>
-    </div>
-  </form>
+
+<!-- Botones de acción -->
+<div class="form-actions d-flex gap-3">
+  <button type="submit" class="btn-form">Registrar Zona (POST)</button>
+  <button type="button" class="btn-form btn-outline-secondary" (click)="onUpdate()">Editar Zona (PUT)</button>
 </div>
+

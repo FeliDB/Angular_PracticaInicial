@@ -1,8 +1,9 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/login">Navbar</a>
+<nav>
+  <div class="navbar-container">
+    <span class="logo">Pedidos Ya</span>
   </div>
 </nav>
+
 @if(isLoading()){
 <!-- Modal de carga -->
 <div class="modal fade show d-block" tabindex="-1" role="dialog"
@@ -23,5 +24,6 @@
 </div>
 }
 <router-outlet />
+
 
 
