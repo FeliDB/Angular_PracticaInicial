@@ -10,7 +10,7 @@
     <div class="card p-4">
       <h1 class="text-center mb-4">Ingresá</h1>
       <h2 class="subtitulo text-center mb-4">Iniciá sesión para continuar</h2>
-      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <form [formGroup]="loginForm" (ngSubmit)="ingresar()">
         <div class="mb-3">
           <label for="email" class="form-label">CORREO ELECTRÓNICO</label>
           <input type="email" formControlName="email" class="form-control" id="email" placeholder="hola@sitioincreible.com.ar" required>
@@ -19,7 +19,7 @@
           <label for="password" class="form-label">CONTRASEÑA</label>
           <input type="password" formControlName="password" class="form-control" id="password" placeholder="******" required>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Ingresar</button>
+        <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Ingresar</button>
       </form>
       <div class="text-center mt-3">
         <a href="/register" class="text-decoration-none">¿No tenés cuenta? Registrate acá</a>
