@@ -1,0 +1,64 @@
+/* Título */
+.titulo-zonas {
+  color: #888888;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 40px;
+}
+
+.form-zonas-container {
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+h2 {
+  font-size: 32px;
+  font-weight: 700;
+  color: #666;
+  margin-bottom: 10px;
+}
+
+.descripcion-form {
+  font-size: 16px;
+  color: #999;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  text-align: left;
+}
+
+label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 5px;
+  color: #777;
+}
+
+input.form-control {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #eee;
+  font-size: 16px;
+}
+
+.btn-form {
+  background-color: #ff5757;
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  margin: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.btn-form:hover {
+  background-color: #e64c4c;
+}

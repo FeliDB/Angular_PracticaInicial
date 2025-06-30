@@ -18,10 +18,15 @@ export class ZonasService {
   }
 
   putZonaByData(data: Zona): Observable<any> {
-  return this.http.put<any>('http://localhost:3001/zone', data);
-}
+    return this.http.put<any>('http://localhost:3001/zone', data);
+  }
 
   patchZona(id: number, data: Partial<Zona>): Observable<any> {
     return this.http.patch<any>(`${this.apiUrl}/${id}`, data);
   }
+
+  deleteZona(id: number): Observable<any> {
+    return this.http.delete<any>(`http://localhost:3001/zone/${id}`);
+  }
+
 }
