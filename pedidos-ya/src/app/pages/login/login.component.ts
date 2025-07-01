@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ApiService } from '../../services/api.service';
 import Swal from 'sweetalert2';
+import { ApiService } from '../../services/api.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -12,10 +12,8 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
-  email: string = "";
-  password: string = "";
 
-  constructor(private fb: FormBuilder, private apiDelivery: ApiService, private router: Router) {}
+  constructor(private fb: FormBuilder, private apiDelivery: ApiService, private router: Router) { }
 
   ngOnInit(): void {
     this.loginForm = this.fb.group({
@@ -31,15 +29,17 @@ export class LoginComponent implements OnInit {
     const { email, password } = this.loginForm.value;
 
     try {
-      const { token } = await this.apiDelivery.login(email, password);
-      localStorage.setItem('token', token);
-      this.router.navigateByUrl('/dashboard');
-    } catch (err) {
-      Swal.fire({
-        icon: 'error',
-        title: 'Login fallido',
-        text: 'Email o contraseña incorrectos'
-      });
+      const response = await this.apiDelivery.login(email, password);
+
+      localStorage.setItem('token', response.accessToken);
+      localStorage.setItem('user', JSON.stringify(response.user));
+
+      await Swal.fire('Éxito', 'Inicio de sesión exitoso', 'success');
+      this.router.navigate(['/']); // Ir al inicio
+    } catch (error: any) {
+      const msg =
+        error?.response?.data?.message || 'Error al iniciar sesión';
+      Swal.fire('Error', msg, 'error');
     }
   }
 }

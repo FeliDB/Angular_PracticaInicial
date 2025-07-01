@@ -13,11 +13,13 @@
       <form [formGroup]="loginForm" (ngSubmit)="ingresar()">
         <div class="mb-3">
           <label for="email" class="form-label">CORREO ELECTRÓNICO</label>
-          <input type="email" formControlName="email" class="form-control" id="email" placeholder="hola@sitioincreible.com.ar" required>
+          <input type="email" formControlName="email" class="form-control" id="email"
+            placeholder="hola@sitioincreible.com.ar" required>
         </div>
         <div class="mb-3">
           <label for="password" class="form-label">CONTRASEÑA</label>
-          <input type="password" formControlName="password" class="form-control" id="password" placeholder="******" required>
+          <input type="password" formControlName="password" class="form-control" id="password" placeholder="******"
+            required>
         </div>
         <button type="submit" class="btn btn-primary w-100" [disabled]="loginForm.invalid">Ingresar</button>
       </form>
