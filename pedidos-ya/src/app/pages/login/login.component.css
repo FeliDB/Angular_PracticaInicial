@@ -1,5 +1,75 @@
 .card {
   width: 100%;
-  max-width: 400px;
+  max-width: 500px;
+  margin-bottom: auto;
+  border: none;
 }
 
+.container {
+  margin-top: 100px;
+}
+
+.text-center {
+  color: gray;
+}
+
+.form-label {
+  color: gray;
+  letter-spacing: 2.5px;
+  font-size: 13px;
+  margin-left: 90px;
+}
+
+.form-control {
+  width: 275px;
+  height: 50px;
+  background-color:#ECECEC;
+  margin: auto;
+  font-size: small;
+}
+
+.subtitulo {
+  font-size: medium;
+}
+
+.barra-superior {
+  background-color: #ff5757;
+  height: 40px;
+  width: auto;
+}
+
+.btn {
+  background-color: #ff5757;
+  border-color: #ff5757;
+  font-size: small;
+  font-weight: bold;
+  max-width: 175px;
+  height: 45px;
+  display: block;
+  margin: auto;
+  margin-top: 35px;
+}
+
+.circulitos {
+  position: absolute;
+  margin-top: 20px;
+  margin-left: 50px;
+  transform: translateY(-50%);
+  display: flex;
+  gap: 10px;
+}
+
+.circulo {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px;
+  border-style: solid;
+  border-color: white;
+  background-color: #ff5757;
+  opacity: 0.8;
+}
+
+.text-decoration-none {
+  color: #ff5757;
+}

@@ -16,7 +16,16 @@ export class ApiService { //Simula ser AuthService
   async getData(): Promise<
     Array<{ name: string; description: string; image: string }>
   > {
-     return (await axios.get(config.urls.getFood)).data
+    return (await axios.get(config.urls.getFood)).data
+  }
+
+  async login(email: string, password: string) {
+    const response = await axios.post(config.urls.login, {
+      email,
+      password,
+    });
+
+    return response.data; // Esto tendrá accessToken, user, refreshToken
   }
   
   // getUsuarios
