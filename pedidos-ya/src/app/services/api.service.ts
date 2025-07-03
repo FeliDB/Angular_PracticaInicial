@@ -20,10 +20,9 @@ export class ApiService { //Simula ser AuthService
   }
   
   // getUsuarios
-existeUsuario(email: string): Promise<any> {
-  return axios.post(config.urls.userExists, { email }).then(response => response.data);
-}
-
+  existeUsuario(email: string): Promise<any> {
+    return axios.post(config.urls.userExists, { email }).then(response => response.data);
+  }
 
   //Aca me envio solicitud al backend, utilizando axios
   registroUsuario(usuario: UserModelo): Promise<any> {

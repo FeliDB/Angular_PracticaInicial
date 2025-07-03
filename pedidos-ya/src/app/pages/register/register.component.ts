@@ -33,7 +33,7 @@ export class Register implements OnInit {
   getRoles(): void {
     this.apiDelivery.getRoles().subscribe({
       next: (data) => {
-        // console.log("Roles obtenidos:", data);
+        console.log("Roles obtenidos:", data);
         this.roles = data; // Asignar los roles obtenidos al array roles
       },
       error: (error) => {
