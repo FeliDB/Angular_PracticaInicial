@@ -1,14 +1,18 @@
 import { Injectable } from '@angular/core';
 import axios from 'axios';
 import { config } from '../config/env';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { UserModelo } from '../models/User/user-modelo';
 
 @Injectable({
   providedIn: 'root',
 })
-export class ApiService {
-  constructor() { }
+export class ApiService { //Simula ser AuthService
+  constructor() {}
 
-  // Ejemplo de profe
+  // !Esto lo envio el profe a modo de ejemplo, pero no lo voy a usar
+
   async getData(): Promise<
     Array<{ name: string; description: string; image: string }>
   > {
@@ -23,4 +27,31 @@ export class ApiService {
 
     return response.data; // Esto tendrá accessToken, user, refreshToken
   }
+  
+  // getUsuarios
+existeUsuario(email: string): Promise<any> {
+  return axios.post(config.urls.userExists, { email }).then(response => response.data);
+}
+
+
+  //Aca me envio solicitud al backend, utilizando axios
+  registroUsuario(usuario: UserModelo): Promise<any> {
+    return axios.post(config.urls.register, usuario).then(response => response.data);
+  }
+
+  getRoles(): Observable<any> { 
+    return new Observable((observer) => {
+      axios.get(config.urls.role)
+        .then(response => {
+          observer.next(response.data);
+          observer.complete();
+        })
+        .catch(error => {
+          observer.error(error);
+        });
+    });
+  }
+
+
+
 }
