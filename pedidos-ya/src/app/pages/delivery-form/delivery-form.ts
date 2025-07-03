@@ -2,14 +2,22 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms'; // Importa ReactiveFormsModule
 import { CommonModule } from '@angular/common'; // Importa CommonModule para *ngIf y ngClass
 import { HttpClient } from '@angular/common/http';
+import { HttpClientModule} from '@angular/common/http';
 
 @Component({
   selector: 'app-delivery-form',
-  standalone: true, // Indica que es un componente autónomo
-  imports: [CommonModule, ReactiveFormsModule], // Importa los módulos necesarios aquí
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    HttpClientModule // <- AÑADILO AQUÍ
+  ],
   templateUrl: './delivery-form.html',
   styleUrls: ['./delivery-form.css']
 })
+
+
+
 export class DeliveryForm implements OnInit {
   formMode: 'add' | 'edit' | 'delete' | null = null;
   showButtons: boolean = true;
