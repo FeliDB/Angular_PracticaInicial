@@ -10,7 +10,7 @@ import { HttpClientModule} from '@angular/common/http';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    HttpClientModule // <- AÑADILO AQUÍ
+    HttpClientModule
   ],
   templateUrl: './delivery-form.html',
   styleUrls: ['./delivery-form.css']
@@ -82,7 +82,7 @@ onSubmit(): void {
   const personID = formData.personID;
 
   if (this.formMode === 'add') {
-    this.http.post('http://localhost:3000/delivery', formData).subscribe({
+    this.http.post('http://localhost:3001/delivery', formData).subscribe({
       next: () => {
         alert('Delivery añadido exitosamente.');
         this.goBack();
@@ -92,7 +92,7 @@ onSubmit(): void {
   }
 
   else if (this.formMode === 'edit') {
-    this.http.put(`http://localhost:3000/delivery/${personID}`, formData).subscribe({
+    this.http.put(`http://localhost:3001/delivery/${personID}`, formData).subscribe({
       next: () => {
         alert('Delivery modificado exitosamente.');
         this.goBack();
@@ -102,7 +102,7 @@ onSubmit(): void {
   }
 
   else if (this.formMode === 'delete') {
-    this.http.delete(`http://localhost:3000/delivery/${personID}`).subscribe({
+    this.http.delete(`http://localhost:3001/delivery/${personID}`).subscribe({
       next: () => {
         alert('Delivery eliminado exitosamente.');
         this.goBack();

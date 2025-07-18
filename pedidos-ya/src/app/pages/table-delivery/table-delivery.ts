@@ -16,7 +16,7 @@ export class TableDelivery {
     estado: string = ""
 
     constructor(private http: HttpClient) {
-        this.http.get<any[]>('http://localhost:3000/delivery').subscribe(data => {
+        this.http.get<any[]>('http://localhost:3001/delivery').subscribe(data => {
           this.deliveries = data;
           console.log(this.deliveries);
 
