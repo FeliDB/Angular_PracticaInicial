@@ -1,0 +1,59 @@
+
+        <div class="barra-superior">ooo </div>
+            <h1 class="tituloGestion">Gestión de Deliveries</h1>
+            <p class="preguntaTexto" [hidden]="!showButtons">¡Bienvenido! ¿Que desea hacer?</p>
+<div class="grupoBotones" [hidden]="!showButtons">
+  <button class="botonOpcion" (click)="hideButtons('add')">Añadir Delivery</button>
+  <button class="botonOpcion" (click)="hideButtons('edit')">Modificar Delivery</button>
+  <button class="botonOpcion" (click)="hideButtons('delete')">Eliminar Delivery</button>
+</div>
+
+
+
+
+
+
+
+<div *ngIf="showForm" class="reactive-form-container">
+  <h2>
+    {{ formMode === 'add' ? 'Formulario de Nuevo Delivery' : 
+       formMode === 'edit' ? 'Modificar Delivery' : 
+       'Eliminar Delivery' }}
+  </h2>
+
+  <form [formGroup]="deliveryReactiveForm" (ngSubmit)="onSubmit()">
+    <!-- Campo común: nombre -->
+    <div class="form-group">
+      <label for="deliverypersonID">Numero de Delivery:</label>
+      <input id="deliverypersonID" type="text" formControlpersonID="personID" class="form-control">
+      <div *ngIf="deliveryReactiveForm.get('personID')?.invalid && deliveryReactiveForm.get('personID')?.touched" class="error-message">
+        El nombre es requerido.
+      </div>
+    </div>
+
+    <!-- Campos solo para añadir o modificar -->
+    <div *ngIf="formMode === 'add' || formMode === 'edit'">
+      <div class="form-group">
+        <label for="deliverylat">Latitud:</label>
+        <textarea id="deliverylat" formControlpersonID="lat" class="form-control"></textarea>
+      </div>
+
+      <div class="form-group">
+        <label for="deliveryradius">Radio:</label>
+        <input id="deliveryradius" type="text" formControlpersonID="radius" class="form-control">
+      </div>
+
+      <div class="form-group">
+        <label for="deliverylng">Longitud:</label>
+        <input id="deliverylng" type="text" formControlpersonID="lng" class="form-control">
+      </div>
+    </div>
+
+    <button type="submit" [disabled]="!deliveryReactiveForm.valid" class="submit-button">
+      {{ formMode === 'delete' ? 'Eliminar' : 'Guardar' }}
+    </button>
+    <button type="button" (click)="goBack()" class="back-button">Volver</button>
+  </form>
+</div>
+
+            

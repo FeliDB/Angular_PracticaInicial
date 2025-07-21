@@ -1,0 +1,145 @@
+/* Barra superior roja */
+.barra-superior {
+  background-color: #ff5757;
+  height: 40px;
+  color: #ffff;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  padding-left: 50px;
+  padding-top: 5px;
+}
+
+/* Título */
+.titulo-delivery {
+  font-family: 'PoppinsBlack', sans-serif;
+  color: #888888;
+  font-size: 32px;
+  font-weight: 600;
+  margin-top: 40px;
+}
+
+/* Tabla */
+.tabla-delivery {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: 'Peter',sans-serif;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.tabla-delivery th,
+.tabla-delivery td {
+  padding: 12px 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.tabla-delivery thead th {
+  background-color: #eeeeee;
+  font-weight: normal;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin: 30px
+}
+
+.pagination-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.pagination {
+  list-style: none;
+  display: flex;
+  padding: 0;
+  margin: 0;
+}
+
+.center-pages {
+  justify-content: center;
+  flex-grow: 1;
+  gap: 0.5rem;
+}
+
+.prev-button::before {
+  font-family: "bootstrap-icons";
+  content: "\f12f"; /* bi-arrow-left */
+  margin-right: 5px;
+}
+
+.next-button::after {
+  font-family: "bootstrap-icons";
+  content: "\f138"; /* bi-arrow-right */
+  margin-left: 5px;
+}
+
+.prev-button, .next-button {
+  width: 32px;
+  height: 32px;
+  display: inline-block;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: none;
+  text-indent: -9999px; /* Oculta texto si hay */
+}
+
+.prev-button {
+  background-image: url('../../../../public/back.png')
+}
+
+.next-button {
+  background-image: url('../../../../public/next.png');
+}
+
+
+
+
+
+
+
+
+
+
+/* Centrar la paginación */
+.pagination.center-pages {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+  margin: 20px 0;
+}
+
+/* Estilo para los ítems de la paginación */
+.pagination.center-pages .page-item {
+  margin: 0 5px;
+}
+
+/* Estilo para los links */
+.pagination.center-pages .page-link {
+  font-family: 'SocialGothic', sans-serif;
+  display: block;
+  padding: 8px 16px;
+  color: #8F8E8E;
+  background-color: #D9D9D9;
+  border: 1px solid #dee2e6;
+  border-radius: 0px;
+  text-decoration: none;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Hover */
+.pagination.center-pages .page-link:hover {
+  background-color: #96c9ff;
+  border-color: #96c9ff;
+}
+
+/* Página activa (si le agregás una clase 'active') */
+.pagination.center-pages .page-item.active .page-link {
+  background-color: #007bff;
+  color: #fff;
+  border-color: #007bff;
+}
