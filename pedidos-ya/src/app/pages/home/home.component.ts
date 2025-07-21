@@ -15,13 +15,7 @@ export class HomeComponent implements OnInit {
     private readonly globalStatusService: GlobalStatusService
   ) {}
   ngOnInit(): void {
-    this.initialization();
   }
 
-  async initialization(): Promise<void> {
-    this.globalStatusService.setLoading(true);
-    const data = await this.apiService.getData();
-    this.items = data;
-    this.globalStatusService.setLoading(false);
-  }
+
 }

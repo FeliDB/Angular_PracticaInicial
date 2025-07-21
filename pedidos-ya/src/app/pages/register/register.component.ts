@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormBuilder, Validators, FormGroup } from '@angula
 import { CommonModule } from '@angular/common';
 import { ApiService } from '../../services/api.service';
 import Swal from 'sweetalert2';
+import { CanActivate } from '@angular/router';
 
 @Component({
   selector: 'app-register',
