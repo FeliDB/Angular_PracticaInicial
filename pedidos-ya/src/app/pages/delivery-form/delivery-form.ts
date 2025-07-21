@@ -78,11 +78,20 @@ onSubmit(): void {
     return;
   }
 
-  const formData = this.deliveryReactiveForm.value;
-  const personID = formData.personID;
+  const rawData = this.deliveryReactiveForm.value;
+
+  // Convertir el objeto plano a la estructura que espera el backend
+  const formattedData = {
+    personId: rawData.personID,
+    radius: rawData.radius,
+    location: {
+      lat: rawData.lat,
+      lng: rawData.lng
+    }
+  };
 
   if (this.formMode === 'add') {
-    this.http.post('http://localhost:3001/delivery', formData).subscribe({
+    this.http.post('http://localhost:3001/delivery', formattedData).subscribe({
       next: () => {
         alert('Delivery añadido exitosamente.');
         this.goBack();
@@ -92,7 +101,7 @@ onSubmit(): void {
   }
 
   else if (this.formMode === 'edit') {
-    this.http.put(`http://localhost:3001/delivery/${personID}`, formData).subscribe({
+    this.http.put(`http://localhost:3001/delivery/${rawData.personID}/location`, formattedData).subscribe({
       next: () => {
         alert('Delivery modificado exitosamente.');
         this.goBack();
@@ -102,7 +111,7 @@ onSubmit(): void {
   }
 
   else if (this.formMode === 'delete') {
-    this.http.delete(`http://localhost:3001/delivery/${personID}`).subscribe({
+    this.http.delete(`http://localhost:3001/delivery/${rawData.personID}`).subscribe({
       next: () => {
         alert('Delivery eliminado exitosamente.');
         this.goBack();
