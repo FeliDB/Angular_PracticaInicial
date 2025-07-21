@@ -1,3 +1,49 @@
-<div class="container">
-  <h1>Bienvenido a Pedidos Ya</h1>
+<div class="home-bg">
+  <div class="carousel-container">
+    <div class="carousel">
+      <input type="radio" name="carousel" id="slide1" checked>
+      <input type="radio" name="carousel" id="slide2">
+      <input type="radio" name="carousel" id="slide3">
+      <div class="slides">
+        <div class="slide s1">
+          <img src="pizza.webp" alt="Pizza" />
+        </div>
+        <div class="slide s2">
+          <img src="hamburguesas.webp" alt="Hamburguesa" />
+        </div>
+        <div class="slide s3">
+          <img src="sushi.webp" alt="Sushi" />
+        </div>
+      </div>
+      <!-- Flechas de navegación -->
+      <div class="carousel-arrows">
+        <label for="slide3" class="arrow arrow-left" id="arrow-left-1">
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15.5 19l-7-7 7-7" stroke="#e60026" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </label>
+        <label for="slide1" class="arrow arrow-left" id="arrow-left-2">
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15.5 19l-7-7 7-7" stroke="#e60026" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </label>
+        <label for="slide2" class="arrow arrow-left" id="arrow-left-3">
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M15.5 19l-7-7 7-7" stroke="#e60026" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </label>
+        <label for="slide2" class="arrow arrow-right" id="arrow-right-1">
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M8.5 5l7 7-7 7" stroke="#e60026" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </label>
+        <label for="slide3" class="arrow arrow-right" id="arrow-right-2">
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M8.5 5l7 7-7 7" stroke="#e60026" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </label>
+        <label for="slide1" class="arrow arrow-right" id="arrow-right-3">
+          <svg width="24" height="24" viewBox="0 0 24 24"><path d="M8.5 5l7 7-7 7" stroke="#e60026" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </label>
+      </div>
+    </div>
+  </div>
+  <section class="minimal-message">
+    <h2>Te llevamos el pedido a tu casa</h2>
+    <p>Rápido, fácil y seguro. ¡Disfrutá tu comida favorita sin moverte!</p>
+    <div class="home-actions">
+      <button routerLink="/login" class="home-btn">Iniciar Sesión</button>
+      <button routerLink="/register" class="home-btn">Registrarse</button>
+    </div>
+  </section>
 </div>
