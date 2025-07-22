@@ -1,8 +1,19 @@
-<nav class="navbar navbar-expand-lg bg-body-tertiary">
-  <div class="container-fluid">
-    <a class="navbar-brand" href="/login"><i ckass="pi pi-home"></i></a>
+<nav class="home-navbar">
+  <img routerLink="/home" src="iconoPedidosYa.webp" alt="PedidosYa Logo" class="logo-img" />
+  <div class="navbar-actions">
+    <ng-container *ngIf="isLoggedIn; else guestBtns">
+      <button routerLink="/dashboard" class="home-btn navbar-btn">Panel</button>
+      <button class="home-btn navbar-btn" (click)="logout()">Cerrar Sesión</button>
+    </ng-container>
+    
+    <ng-template #guestBtns>
+      <button routerLink="/login" class="home-btn navbar-btn solid">Iniciar Sesión</button>
+      <button routerLink="/register" class="home-btn navbar-btn outline">Registrarse</button>
+    </ng-template>
+      
   </div>
 </nav>
+
 @if(isLoading()){
 <!-- Modal de carga -->
 <div class="modal fade show d-block" tabindex="-1" role="dialog"
@@ -23,3 +34,6 @@
 </div>
 }
 <router-outlet />
+
+
+

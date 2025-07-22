@@ -1,0 +1,49 @@
+<!-- Barra roja superior -->
+<div class="barra-superior"></div>
+
+<div class="container py-5">
+  <!-- Título centrado -->
+  <div class="text-center mb-5">
+    <h1 class="fw-bold titulo-zonas">Tabla de Zonas</h1>
+  </div>
+
+  <!-- Tabla de zonas -->
+  <table class="tablaZonas">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Ubicación</th>
+        <th>Radio</th>
+      </tr>
+    </thead>
+    <tbody>
+      @for (zona of paginatedZonas; track zona.idZone) {
+        <tr>
+          <td>{{ zona.idZone }}</td>
+          <td>{{ zona.name }}</td>
+          <td>
+            <div>Latitud: {{ zona.location.lat }}</div>
+            <div>Longitud: {{ zona.location.lng }}</div>
+          </td>
+          <td>{{ zona.radius }}</td>
+        </tr>
+      }
+    </tbody>
+  </table>
+
+  <!-- Controles de paginación -->
+  <nav aria-label="Page navigation example" class="mt-4">
+    <ul class="pagination justify-content-center">
+      <li class="page-item" [class.disabled]="currentPage === 1">
+        <button class="page-link" (click)="prevPage()">Anterior</button>
+      </li>
+      <li class="page-item disabled">
+        <span class="page-link">Página {{ currentPage }}</span>
+      </li>
+      <li class="page-item" [class.disabled]="(currentPage * itemsPerPage) >= zonas.length">
+        <button class="page-link" (click)="nextPage()">Siguiente</button>
+      </li>
+    </ul>
+  </nav>
+</div>

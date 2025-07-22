@@ -13,6 +13,7 @@ import { CommonModule } from '@angular/common';
 })
 export class LoginComponent implements OnInit {
   loginForm!: FormGroup;
+  esCliente: boolean = false;
 
   constructor(private fb: FormBuilder, private apiDelivery: ApiService, private router: Router) { }
 
@@ -34,9 +35,12 @@ export class LoginComponent implements OnInit {
 
       localStorage.setItem('token', response.accessToken);
       localStorage.setItem('user', JSON.stringify(response.user));
+      this.esCliente = true;
+      localStorage.setItem('esCliente', 'true');
 
       await Swal.fire('Éxito', 'Inicio de sesión exitoso', 'success');
-      this.router.navigate(['/']); // Ir al inicio
+      this.router.navigate(['/dashboard']); // Ir al inicio
+  
     } catch (error: any) {
       const msg =
         error?.response?.data?.message || 'Error al iniciar sesión';

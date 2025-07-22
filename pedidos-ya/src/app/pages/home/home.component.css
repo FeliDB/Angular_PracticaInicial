@@ -1,13 +1,48 @@
-.home-bg {
-  min-height: 100vh;
+.home-navbar {
   width: 100vw;
-  background: linear-gradient(135deg, #fff 60%, #ffe5ea 100%);
-  position: relative;
-  overflow-x: hidden;
+  height: 64px;
+  background: #fff;
+  box-shadow: 0 2px 12px rgba(230,0,38,0.07);
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  padding: 0 32px;
+}
+.navbar-home-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  background: #fff;
+  border-radius: 50%;
+  border: 2px solid #e60026;
+  box-shadow: 0 2px 8px rgba(230,0,38,0.08);
+  width: 44px;
+  height: 44px;
+  transition: background 0.18s, border 0.18s, transform 0.18s;
+}
+.navbar-home-icon:hover {
+  background: #ffe5ea;
+  border-color: #ff4d6d;
+  transform: scale(1.07);
+}
+.navbar-actions {
+  display: flex;
+  gap: 16px;
+}
+.navbar-btn {
+  padding: 8px 22px;
+  font-size: 1rem;
+  border-radius: 6px;
+  box-shadow: none;
+}
+
+.home-bg {
+  margin-top: 64px;
 }
 
 /* Ondas decorativas en el fondo */
@@ -262,5 +297,20 @@
   .arrow {
     width: 24px;
     height: 24px;
+  }
+  .home-navbar {
+    height: 48px;
+    padding: 0 8px;
+  }
+  .navbar-home-icon {
+    width: 32px;
+    height: 32px;
+  }
+  .navbar-btn {
+    padding: 6px 12px;
+    font-size: 0.95rem;
+  }
+  .home-bg {
+    margin-top: 48px;
   }
 }
