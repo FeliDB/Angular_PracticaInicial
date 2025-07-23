@@ -1,30 +1,60 @@
-/* Título */
-.titulo-zonas {
+/* Título principal */
+.tituloGestion {
   color: #888888;
   font-size: 32px;
   font-weight: 600;
   margin-top: 40px;
+  text-align: center;
 }
 
+/* Contenedor principal del formulario */
 .form-zonas-container {
   max-width: 400px;
   margin: 0 auto;
   text-align: center;
 }
 
+/* Subtítulo del formulario (formMode dinámico) */
 h2 {
-  font-size: 32px;
+  font-size: 28px;
   font-weight: 700;
   color: #666;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
 }
 
-.descripcion-form {
+/* Texto de bienvenida */
+.preguntaTexto {
   font-size: 16px;
   color: #999;
+  text-align: center;
+  margin: 20px 0;
+}
+
+/* Botones iniciales de acción */
+.grupoBotones {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
   margin-bottom: 30px;
 }
 
+.botonOpcion {
+  background-color: #ff5757;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.botonOpcion:hover {
+  background-color: #e64c4c;
+}
+
+/* Estilo general de grupos de campos */
 .form-group {
   margin-bottom: 20px;
   text-align: left;
@@ -46,7 +76,17 @@ input.form-control {
   font-size: 16px;
 }
 
-.btn-form {
+textarea.form-control {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background-color: #eee;
+  font-size: 16px;
+}
+
+/* Botón para enviar formulario */
+.submit-button {
   background-color: #ff5757;
   color: white;
   border: none;
@@ -55,10 +95,40 @@ input.form-control {
   font-size: 16px;
   border-radius: 12px;
   cursor: pointer;
-  margin: 8px;
+  margin: 10px auto;
+  display: block;
   transition: background-color 0.3s ease;
 }
 
-.btn-form:hover {
+.submit-button:hover {
   background-color: #e64c4c;
+}
+
+/* Botón volver */
+.back-button {
+  background-color: transparent;
+  color: #555;
+  border: 2px solid #ccc;
+  padding: 8px 20px;
+  font-weight: bold;
+  font-size: 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  margin-top: 12px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  transition: all 0.3s ease;
+}
+
+.back-button:hover {
+  background-color: #f2f2f2;
+  border-color: #bbb;
+}
+
+/* Mensajes de error */
+.error {
+  color: #d9534f;
+  font-size: 13px;
+  margin-top: 4px;
 }
