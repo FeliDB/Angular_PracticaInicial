@@ -23,9 +23,9 @@ export const routes: Routes = [
       { path: '', component: HomeComponent },
       { path: 'dashboard', component: DashboardComponent, canActivate: [dashboardGuard] },
       { path: 'table-zone', component: TablaZonas },
-      { path: 'zone-form', component: FormZonas },
+      { path: 'zone-form', component: FormZonas, canActivate: [dashboardGuard] },
       { path: 'table-delivery', component: TableDelivery },
-      { path: 'delivery-form', component: DeliveryForm },
+      { path: 'delivery-form', component: DeliveryForm, canActivate: [dashboardGuard] },
     ]
   },
 
