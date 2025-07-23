@@ -241,6 +241,30 @@
   display: block;
 }
 
+.verDelivery {
+  display: flex;
+  justify-content: center;
+  align-items: center;  
+  margin-top: 20px;
+  gap: 10px; /* Espacio entre botones */
+}
+
+.verDelivery button {
+  background-color: red;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.verDelivery button:hover {
+  background-color: darkred;
+}
+
+
 /* Mostrar solo la flecha correspondiente según el slide activo */
 #slide1:checked ~ .carousel-arrows #arrow-left-1,
 #slide2:checked ~ .carousel-arrows #arrow-left-2,
