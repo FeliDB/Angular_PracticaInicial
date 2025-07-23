@@ -1,18 +1,16 @@
+<div class="barra-superior">ooo </div>
 
-        <div class="barra-superior">ooo </div>
-            <h1 class="tituloGestion">Gestión de Deliveries</h1>
-            <p class="preguntaTexto" [hidden]="!showButtons">¡Bienvenido! ¿Que desea hacer?</p>
+<h1 class="tituloGestion">Gestión de Deliveries</h1>
+
+<p class="preguntaTexto" [hidden]="!showButtons">
+  ¡Bienvenido! ¿Qué desea hacer?
+</p>
+
 <div class="grupoBotones" [hidden]="!showButtons">
   <button class="botonOpcion" (click)="hideButtons('add')">Añadir Delivery</button>
   <button class="botonOpcion" (click)="hideButtons('edit')">Modificar Delivery</button>
   <button class="botonOpcion" (click)="hideButtons('delete')">Eliminar Delivery</button>
 </div>
-
-
-
-
-
-
 
 <div *ngIf="showForm" class="reactive-form-container">
   <h2>
@@ -22,30 +20,33 @@
   </h2>
 
   <form [formGroup]="deliveryReactiveForm" (ngSubmit)="onSubmit()">
-    <!-- Campo común: nombre -->
+    <!-- Campo común: personID -->
     <div class="form-group">
-      <label for="deliverypersonID">Numero de Delivery:</label>
-      <input id="deliverypersonID" type="text" formControlName="personID" class="form-control">
+      <label for="deliverypersonID">Número de Delivery:</label>
+      <input id="deliverypersonID" type="text" formControlName="personID" class="form-control" />
       <div *ngIf="deliveryReactiveForm.get('personID')?.invalid && deliveryReactiveForm.get('personID')?.touched" class="error-message">
-        El nombre es requerido.
+        El número de delivery es requerido.
       </div>
     </div>
 
-    <!-- Campos solo para añadir o modificar -->
+    <!-- Campos para añadir o modificar -->
     <div *ngIf="formMode === 'add' || formMode === 'edit'">
+      <!-- Latitud -->
       <div class="form-group">
         <label for="deliverylat">Latitud:</label>
         <textarea id="deliverylat" formControlName="lat" class="form-control"></textarea>
       </div>
 
-      <div class="form-group">
+      <!-- Radio (solo para añadir) -->
+      <div class="form-group" *ngIf="formMode === 'add'">
         <label for="deliveryradius">Radio:</label>
-        <input id="deliveryradius" type="text" formControlName="radius" class="form-control">
+        <input id="deliveryradius" type="text" formControlName="radius" class="form-control" />
       </div>
 
+      <!-- Longitud -->
       <div class="form-group">
         <label for="deliverylng">Longitud:</label>
-        <input id="deliverylng" type="text" formControlName="lng" class="form-control">
+        <input id="deliverylng" type="text" formControlName="lng" class="form-control" />
       </div>
     </div>
 
@@ -55,5 +56,3 @@
     <button type="button" (click)="goBack()" class="back-button">Volver</button>
   </form>
 </div>
-
-            
