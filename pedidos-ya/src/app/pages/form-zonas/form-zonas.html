@@ -1,56 +1,86 @@
 <div class="barra-superior">ooo </div>
+
+
 <h1 class="tituloGestion">Gestión de Zonas</h1>
 <p class="preguntaTexto" [hidden]="!showButtons">¡Bienvenido! ¿Qué desea hacer?</p>
+
 <div class="grupoBotones" [hidden]="!showButtons">
   <button class="botonOpcion" (click)="hideButtons('add')">Añadir Zona</button>
   <button class="botonOpcion" (click)="hideButtons('edit')">Modificar Zona</button>
   <button class="botonOpcion" (click)="hideButtons('delete')">Eliminar Zona</button>
 </div>
 
-<div *ngIf="showForm" class="reactive-form-container">
-  <h2>
-    {{ formMode === 'add' ? 'Formulario de Nueva Zona' : 
-       formMode === 'edit' ? 'Modificar Zona' : 
-       'Eliminar Zona' }}
-  </h2>
+<!-- FORMULARIO DE ELIMINACIÓN -->
+<div *ngIf="showForm && formMode === 'delete'" class="form-zonas-container">
+  <h2>Eliminar Zona</h2>
+  <p class="descripcion-form">Ingrese el ID de la zona que desea eliminar.</p>
 
-  <form [formGroup]="zonaForm" (ngSubmit)="onSubmit()">
-    <!-- Campo común: ID (solo para editar/eliminar) -->
-    <div class="form-group" *ngIf="formMode === 'edit' || formMode === 'delete'">
-      <label for="zonaid">ID de la Zona:</label>
-      <input id="zonaid" type="text" formControlName="id" class="form-control">
-      <div *ngIf="zonaForm.get('id')?.invalid && zonaForm.get('id')?.touched" class="error-message">
-        El ID es requerido.
+  <form [formGroup]="deleteForm" (ngSubmit)="onDelete()">
+    <div class="form-group">
+      <label for="idZone">ID de la Zona:</label>
+      <input
+        id="idZone"
+        type="number"
+        class="form-control"
+        formControlName="idZone"
+      />
+      <div *ngIf="idZone?.invalid && (idZone?.touched || idZone?.dirty)" class="error">
+        <small *ngIf="idZone?.errors?.['required']">El ID es obligatorio.</small>
       </div>
     </div>
 
-    <!-- Campos solo para añadir o modificar -->
-    <div *ngIf="formMode === 'add' || formMode === 'edit'">
-      <div class="form-group">
-        <label for="zonaname">Nombre:</label>
-        <input id="zonaname" type="text" formControlName="name" class="form-control">
-        <div *ngIf="zonaForm.get('name')?.invalid && zonaForm.get('name')?.touched" class="error-message">
-          El nombre es requerido.
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="zonalat">Latitud:</label>
-        <input id="zonalat" type="text" formControlName="lat" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="zonalng">Longitud:</label>
-        <input id="zonalng" type="text" formControlName="lng" class="form-control">
-      </div>
-      <div class="form-group">
-        <label for="zonaradius">Radio:</label>
-        <input id="zonaradius" type="text" formControlName="radius" class="form-control">
-      </div>
-    </div>
-
-    <button type="submit" [disabled]="!zonaForm.valid" class="submit-button">
-      {{ formMode === 'delete' ? 'Eliminar' : 'Guardar' }}
-    </button>
+    <button type="submit" [disabled]="!deleteForm.valid" class="submit-button">Eliminar</button>
     <button type="button" (click)="goBack()" class="back-button">Volver</button>
   </form>
 </div>
 
+<!-- FORMULARIO DE AGREGAR / MODIFICAR -->
+<div *ngIf="showForm && (formMode === 'add' || formMode === 'edit')" class="form-zonas-container">
+  <h2>
+    {{ formMode === 'add' ? 'Agregar nueva Zona' : 'Modificar Zona' }}
+  </h2>
+
+  <form [formGroup]="zonaForm" (ngSubmit)="onSubmit()">
+    
+    <!-- Campo ID solo en modo EDIT -->
+    <div class="form-group" *ngIf="formMode === 'edit'">
+      <label for="idZone">ID de la Zona a modificar:</label>
+      <input id="idZone" type="number" class="form-control" formControlName="idZone" />
+    </div>
+
+    <!-- Campo Nombre -->
+    <div class="form-group">
+      <label for="name">Nombre:</label>
+      <input id="name" type="text" class="form-control" formControlName="name" />
+      <div *ngIf="zonaForm.get('name')?.invalid && zonaForm.get('name')?.touched" class="error">
+        <small *ngIf="zonaForm.get('name')?.errors?.['required']">El nombre es obligatorio.</small>
+        <small *ngIf="zonaForm.get('name')?.errors?.['minlength']">Debe tener al menos 3 caracteres.</small>
+      </div>
+    </div>
+
+    <!-- Campo Latitud -->
+    <div formGroupName="location">
+      <div class="form-group">
+        <label for="lat">Latitud:</label>
+        <input id="lat" type="number" class="form-control" formControlName="lat" />
+      </div>
+
+      <!-- Campo Longitud -->
+      <div class="form-group">
+        <label for="lng">Longitud:</label>
+        <input id="lng" type="number" class="form-control" formControlName="lng" />
+      </div>
+    </div>
+
+    <!-- Campo Radio -->
+    <div class="form-group">
+      <label for="radius">Radio:</label>
+      <input id="radius" type="number" class="form-control" formControlName="radius" />
+    </div>
+
+    <button type="submit" [disabled]="!zonaForm.valid" class="submit-button">
+      Guardar
+    </button>
+    <button type="button" (click)="goBack()" class="back-button">Volver</button>
+  </form>
+</div>

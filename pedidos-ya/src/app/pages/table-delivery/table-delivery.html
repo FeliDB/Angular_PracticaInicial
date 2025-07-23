@@ -15,8 +15,6 @@
         <th>Nro Delivery</th>
         <th>Radio</th>
         <th>Estado</th>
-        <th>Latitud</th>
-        <th>Longitud</th>
         <th>Zonas</th>
       </tr>
     </thead>
@@ -25,8 +23,6 @@
     <td>{{ delivery.idDelivery }}</td>
     <td>{{ delivery.radius }}</td>
     <td>{{ getEstadoTraducido(delivery.status) }}</td>
-    <td>{{ delivery.location.lat }}</td>
-    <td>{{ delivery.location.lng }}</td>
     <td>{{ delivery.zone }}</td>
   </tr>
 }
